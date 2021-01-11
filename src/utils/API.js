@@ -4,7 +4,7 @@ import axios from "axios";
 // https://randomuser.me/
 
 export default {
-  search: function (query) {
-    return axios.get("https://randomuser.me/api/?results=" + query);
+  apiSearch: function (query) {
+    return axios.get("https://randomuser.me/api/?results=50" + query);
   },
 };
