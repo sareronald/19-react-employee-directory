@@ -4,7 +4,8 @@ import axios from "axios";
 // https://randomuser.me/
 
 export default {
-  apiSearch: function (query) {
-    return axios.get("https://randomuser.me/api/?results=50" + query);
+  apiSearch: function () {
+    const url = "https://randomuser.me/api/?results=20";
+    return axios.get(url);
   },
 };

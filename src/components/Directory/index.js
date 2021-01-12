@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import EmployeeRow from "../EmployeeRow";
 import SearchForm from "../SearchForm";
+// npm package to reformat date for DOB (dob: {date: "1963-09-02T08:14:38.366Z", age: 58})
+import dateFormat from "dateformat";
 // import css for directory
 
 class Directory extends Component {
   state = {
     search: "",
-    results: [],
+    employees: [],
   };
 
   // When the component mounts, get information from randonuser.me API
   componentDidMount() {
     API.apiSearch()
-      .then((res) => this.setState({ results: res.data.results }))
+      .then((res) => this.setState({ employees: res.data.results }))
       .catch((err) => console.log(err));
   }
 
@@ -34,28 +37,21 @@ class Directory extends Component {
   // Render items
   render() {
     return (
-      <div>
+      <section className="container">
         <SearchForm
           handleInputChange={this.handleInputChange}
           search={this.state.search}
         />
         <div className="directory-table">
-          <table className="employee-table">
+          <table className="table-title">
             <thead>
               <tr>
                 <th>Image</th>
                 <th>
-                  First Name
+                  Name
                   <span
                     className="downArrow"
                     onClick={this.sortByFirstName}
-                  ></span>
-                </th>
-                <th>
-                  Last Name
-                  <span
-                    className="downArrow"
-                    onClick={this.sortByLastName}
                   ></span>
                 </th>
                 <th>Phone</th>
@@ -63,9 +59,22 @@ class Directory extends Component {
                 <th>DOB</th>
               </tr>
             </thead>
+            <tbody>
+              {this.state.employees.map((employee, index) => (
+                <EmployeeRow
+                  key={employee.id.value}
+                  firstName={employee.name.first}
+                  lastName={employee.name.last}
+                  src={employee.picture.thumbnail}
+                  phone={employee.phone}
+                  email={employee.email}
+                  dob={dateFormat(employee.dob.date, "paddedShortDate")}
+                />
+              ))}
+            </tbody>
           </table>
         </div>
-      </div>
+      </section>
     );
   }
 }
