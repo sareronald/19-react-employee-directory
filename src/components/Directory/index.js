@@ -60,7 +60,7 @@ class Directory extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.employees.map((employee, index) => (
+              {this.state.employees.map((employee) => (
                 <EmployeeRow
                   key={employee.id.value}
                   firstName={employee.name.first}
