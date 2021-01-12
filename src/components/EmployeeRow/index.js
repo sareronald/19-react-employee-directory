@@ -1,7 +1,7 @@
 import React from "react";
 // import dateFormat from "dateformat";
 
-function EmployeeList(props) {
+function EmployeeRow(props) {
   return (
     <tr data={props.id}>
       <td>
@@ -26,4 +26,4 @@ function EmployeeList(props) {
   );
 }
 
-export default EmployeeList;
+export default EmployeeRow;
