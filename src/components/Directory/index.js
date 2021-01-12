@@ -43,7 +43,7 @@ class Directory extends Component {
           search={this.state.search}
         />
         <div className="directory-table">
-          <table className="table-title">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th>Image</th>
@@ -60,8 +60,9 @@ class Directory extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.employees.map((employee) => (
+              {this.state.employees.map((employee, index) => (
                 <EmployeeRow
+                  id={index}
                   key={employee.id.value}
                   firstName={employee.name.first}
                   lastName={employee.name.last}
