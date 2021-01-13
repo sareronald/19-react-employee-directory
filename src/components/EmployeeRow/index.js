@@ -7,7 +7,7 @@ function EmployeeRow(props) {
       <td>
         <img
           alt={props.lastName}
-          className="img-fluid profile-pic"
+          className="img-fluid rounded-circle"
           src={props.src}
           style={{ margin: "0 auto" }}
         />
