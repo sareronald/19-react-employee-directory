@@ -29,7 +29,7 @@ SO THAT I have quick access to their information.
 
 ## Link to the App
 Please visit the <a href="https://github.com/sareronald/19-react-employee-directory.git">GitHub repository</a> for a copy of the code for this project and application.<br>
-Please visit the <a href="">Employee Directory</a> application, hosted on GitHub.
+Please visit the <a href="http://sareronald.github.io/19-react-employee-directory">Employee Directory</a> application, hosted on GitHub.
 <br>
 
 ## About this project
@@ -75,7 +75,7 @@ npm install
 
 ## Screenshots
 #### **Walkthrough of application**
-![employee-directory-walkthrough](https://user-images.githubusercontent.com/67722377/104421734-e09e6400-55cf-11eb-91b3-44255d86022d.gif)
+![react-directory-walkthrough](https://user-images.githubusercontent.com/67722377/104429289-8f936d80-55d9-11eb-9f11-cc83d19342bc.gif)
 <br>
 
 
