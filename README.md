@@ -17,7 +17,6 @@ This Employee Directory allows the user to view information on all employees, an
 * [Authors](#Authors)
 <br>
 
-
 ## Project Overview
 A user will be able to view a table of employees when the page loads. If necessary the table can be sorted by First Name, Surname and DOB and using the search field will allow the user to filter through the list of names to display only those employees with matching letters.
 <br>
@@ -55,7 +54,6 @@ An employee or manager would benefit greatly from being able to view non-sensiti
   * [React](https://reactjs.org/docs/getting-started.html)
   * [React Router DOM](https://reactrouter.com/web/guides/quick-start)
   * [dateformat npm](https://www.npmjs.com/package/dateformat)
-
 <br>
 
 ## Installation
@@ -64,7 +62,7 @@ To install this Employee Directory:
 ```
 git@github.com:sareronald/19-react-employee-directory.git
 ```
-2. Open a terminal window and navigate to the local directory. Run 
+2. Open a terminal window and navigate to the local directory. Run: 
 ```
 npm install
 ```
@@ -77,7 +75,7 @@ npm install
 
 ## Screenshots
 #### **Walkthrough of application**
-
+![employee-directory-walkthrough](https://user-images.githubusercontent.com/67722377/104421734-e09e6400-55cf-11eb-91b3-44255d86022d.gif)
 <br>
 
 
