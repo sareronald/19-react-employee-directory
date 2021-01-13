@@ -28,8 +28,47 @@ class Directory extends Component {
     });
   };
 
-  // Sort by FIRST Name
-  sortByName = () => {};
+  // Sort by LAST NAME
+  sortByLastName = () => {
+    const sortedEmployees = this.state.employees.sort((a, b) => {
+      if (b.name.last > a.name.last) {
+        return -1;
+      }
+      if (a.name.last > b.name.last) {
+        return 1;
+      }
+      return 0;
+    });
+
+    if (this.state.sortOrder === "isDecending") {
+      sortedEmployees.reverse();
+      this.setState({ sortOrder: "isAscending" });
+    } else {
+      this.setState({ sortOrder: "isDecending" });
+    }
+    this.setState({ employees: sortedEmployees });
+  };
+
+  // Sort by DOB
+  sortByDOB = () => {
+    const sortedEmployees = this.state.employees.sort((a, b) => {
+      if (b.dob.date > a.dob.date) {
+        return -1;
+      }
+      if (a.dob.date > b.dob.date) {
+        return 1;
+      }
+      return 0;
+    });
+
+    if (this.state.sortOrder === "isDecending") {
+      sortedEmployees.reverse();
+      this.setState({ sortOrder: "isAscending" });
+    } else {
+      this.setState({ sortOrder: "isDecending" });
+    }
+    this.setState({ employees: sortedEmployees });
+  };
 
   // filter employees based on searched characters
   filterEmployeeList = () => {
@@ -60,16 +99,14 @@ class Directory extends Component {
             <thead>
               <tr>
                 <th>Image</th>
-                <th>
-                  Name
-                  <span
-                    className="downArrow"
-                    onClick={this.sortByFirstName}
-                  ></span>
+                <th onClick={this.sortByLastName}>
+                  Name <span className="fa fa-sort"></span>
                 </th>
                 <th>Phone</th>
                 <th>Email</th>
-                <th>DOB</th>
+                <th onClick={this.sortByDOB}>
+                  DOB <span className="fa fa-sort"></span>
+                </th>
               </tr>
             </thead>
             <tbody>
