@@ -29,12 +29,25 @@ class Directory extends Component {
   };
 
   // Sort by FIRST Name
-  sortByFirstName = () => {};
+  sortByName = () => {};
 
-  // Sort by LAST Name
-  sortByLastName = () => {};
+  // filter employees based on searched characters
+  filterEmployeeList = () => {
+    if (!this.state.search) {
+      // console.log(this.state.employees);
+      return this.state.employees;
+    } else {
+      return this.state.employees.filter(
+        (filteredEmployee) =>
+          filteredEmployee.name.first
+            .toLowerCase()
+            .includes(this.state.search) ||
+          filteredEmployee.name.last.toLowerCase().includes(this.state.search)
+      );
+    }
+  };
 
-  // Render items
+  // Render items: Search Form and Employee Row
   render() {
     return (
       <section className="container">
@@ -60,10 +73,10 @@ class Directory extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.employees.map((employee, index) => (
+              {this.filterEmployeeList().map((employee, index) => (
                 <EmployeeRow
                   id={index}
-                  key={employee.id.value}
+                  key={employee.login.uuid}
                   firstName={employee.name.first}
                   lastName={employee.name.last}
                   src={employee.picture.thumbnail}
