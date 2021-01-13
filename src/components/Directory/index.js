@@ -28,6 +28,27 @@ class Directory extends Component {
     });
   };
 
+  // Sort by FIRST NAME
+  sortByFirstName = () => {
+    const sortedEmployees = this.state.employees.sort((a, b) => {
+      if (b.name.first > a.name.first) {
+        return -1;
+      }
+      if (a.name.first > b.name.first) {
+        return 1;
+      }
+      return 0;
+    });
+
+    if (this.state.sortOrder === "isDecending") {
+      sortedEmployees.reverse();
+      this.setState({ sortOrder: "isAscending" });
+    } else {
+      this.setState({ sortOrder: "isDecending" });
+    }
+    this.setState({ employees: sortedEmployees });
+  };
+
   // Sort by LAST NAME
   sortByLastName = () => {
     const sortedEmployees = this.state.employees.sort((a, b) => {
@@ -73,7 +94,6 @@ class Directory extends Component {
   // filter employees based on searched characters
   filterEmployeeList = () => {
     if (!this.state.search) {
-      // console.log(this.state.employees);
       return this.state.employees;
     } else {
       return this.state.employees.filter(
@@ -99,8 +119,11 @@ class Directory extends Component {
             <thead>
               <tr>
                 <th>Image</th>
+                <th onClick={this.sortByFirstName}>
+                  First Name <span className="fa fa-sort"></span>
+                </th>
                 <th onClick={this.sortByLastName}>
-                  Name <span className="fa fa-sort"></span>
+                  Surname <span className="fa fa-sort"></span>
                 </th>
                 <th>Phone</th>
                 <th>Email</th>

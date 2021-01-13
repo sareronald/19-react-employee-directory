@@ -12,9 +12,8 @@ function EmployeeRow(props) {
           style={{ margin: "0 auto" }}
         />
       </td>
-      <td>
-        {props.firstName} {props.lastName}
-      </td>
+      <td>{props.firstName}</td>
+      <td>{props.lastName}</td>
       <td>{props.phone}</td>
       <td>
         <a className="nav-link" href={props.email}>
