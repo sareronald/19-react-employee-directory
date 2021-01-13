@@ -4,7 +4,6 @@ import EmployeeRow from "../EmployeeRow";
 import SearchForm from "../SearchForm";
 // npm package to reformat date for DOB (dob: {date: "1963-09-02T08:14:38.366Z", age: 58})
 import dateFormat from "dateformat";
-// import css for directory
 
 class Directory extends Component {
   state = {
@@ -114,21 +113,30 @@ class Directory extends Component {
           handleInputChange={this.handleInputChange}
           search={this.state.search}
         />
-        <div className="directory-table">
+        <div className="directory-table" style={{ marginTop: "30px" }}>
           <table className="table table-striped">
             <thead>
               <tr>
                 <th>Image</th>
-                <th onClick={this.sortByFirstName}>
-                  First Name <span className="fa fa-sort"></span>
+                <th>
+                  First Name{" "}
+                  <span
+                    className="fa fa-sort"
+                    onClick={this.sortByFirstName}
+                  ></span>
                 </th>
-                <th onClick={this.sortByLastName}>
-                  Surname <span className="fa fa-sort"></span>
+                <th>
+                  Surname{" "}
+                  <span
+                    className="fa fa-sort"
+                    onClick={this.sortByLastName}
+                  ></span>
                 </th>
                 <th>Phone</th>
                 <th>Email</th>
-                <th onClick={this.sortByDOB}>
-                  DOB <span className="fa fa-sort"></span>
+                <th>
+                  DOB{" "}
+                  <span className="fa fa-sort" onClick={this.sortByDOB}></span>
                 </th>
               </tr>
             </thead>
